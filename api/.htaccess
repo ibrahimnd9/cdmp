@@ -1,0 +1,4 @@
+# Seul envoi.php est accessible depuis le web.
+<FilesMatch "^(?!envoi\.php$).*">
+  Require all denied
+</FilesMatch>

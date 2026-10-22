@@ -23,7 +23,9 @@
 .df-file{border:1.5px dashed var(--border);border-radius:10px;padding:16px 18px;background:#f8fafc;transition:border-color .15s ease;}
 .df-file:hover{border-color:var(--blue);}
 .df-file label{display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin:0;}
-.df-file input[type=file]{display:none;}
+.df-file label{position:relative;}
+.df-file input[type=file]{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;}
+.df-file:focus-within{border-color:var(--blue);}
 .df-file .file-info{flex:1;}
 .df-file .file-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:2px;}
 .df-file .file-name .req{color:#dc2626;}
@@ -62,11 +64,11 @@
 <a href="presentation.html#mot-du-directeur">Mot du directeur</a>
 </div>
 </div></div>
-<div class="nav-item"><a class="" href="domaines-intervention.html">Domaines d'intervention</a>
+<div class="nav-item"><a class="" href="domaines-intervention.html">Nos offres et services</a>
 <div class="mega">
-<div class="mega-col"><h5>Nos solutions</h5>
-<a href="domaines-intervention.html#offres">Offres</a>
-<a href="domaines-intervention.html#solutions">Services</a>
+<div class="mega-col"><h5>Domaines d'intervention</h5>
+<a href="domaines-intervention.html#offres">Nos offres et services</a>
+<a href="domaines-intervention.html#approche">Notre approche</a>
 <a href="eligibilite.html">Vérifier mon éligibilité</a>
 </div>
 </div></div>
@@ -74,8 +76,8 @@
 <div class="nav-item"><a class="" href="actualites.html">Actualités</a>
 <div class="mega">
 <div class="mega-col"><h5>Suivre la CDMP</h5>
-<a href="actualites.html#publications">Publications</a>
 <a href="actualites.html#realisations">Réalisations</a>
+<a href="actualites.html#publications">Actualités &amp; publications</a>
 </div>
 </div></div>
 <div class="nav-item"><a class="" href="contact.html">Contact</a></div>
@@ -97,7 +99,8 @@
 
 <section style="padding:52px 0 90px;">
 <div class="wrap" style="max-width:960px;">
-<form class="df-form">
+<form class="df-form" data-formulaire="financement" action="api/envoi.php" method="post" enctype="multipart/form-data">
+<input type="text" name="site_hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true"/>
 
 <!-- INFOS PERSONNELLES -->
 <div class="df-section">
@@ -163,7 +166,7 @@
 </div>
 <div class="df-row">
 <div class="df-field"><label>Adresse e-mail<span class="req">*</span></label><input type="email" name="email" placeholder="nom@entreprise.com" required/></div>
-<div class="df-field"><label>Site web</label><input type="url" name="site_web" placeholder="https://..."/></div>
+<div class="df-field"><label>Site web</label><input type="text" name="site_web" placeholder="www.entreprise.sn"/></div>
 </div>
 </div>
 
@@ -174,7 +177,7 @@
 <div style="display:flex;flex-direction:column;gap:14px;">
 
 <div class="df-file"><label>
-<input type="file" accept=".pdf,.jpg,.jpeg,.png" required/>
+<input type="file" name="fichier_rccm" accept=".pdf,.jpg,.jpeg,.png" required/>
 <div class="file-info">
 <div class="file-name">Registre du Commerce et du Crédit Mobilier (RCCM) <span class="req">*</span></div>
 <div class="file-limit">PDF, JPG ou PNG — max. 5&nbsp;Mo</div>
@@ -183,7 +186,7 @@
 </label></div>
 
 <div class="df-file"><label>
-<input type="file" accept=".pdf,.jpg,.jpeg,.png" required/>
+<input type="file" name="fichier_ninea" accept=".pdf,.jpg,.jpeg,.png" required/>
 <div class="file-info">
 <div class="file-name">Numéro d'Identification Nationale des Entreprises et Associations (NINEA) <span class="req">*</span></div>
 <div class="file-limit">PDF, JPG ou PNG — max. 5&nbsp;Mo</div>
@@ -192,7 +195,7 @@
 </label></div>
 
 <div class="df-file"><label>
-<input type="file" accept=".pdf" multiple required/>
+<input type="file" name="fichier_etats[]" accept=".pdf" multiple required/>
 <div class="file-info">
 <div class="file-name">États financiers — bilans des 3 derniers exercices <span class="req">*</span></div>
 <div class="file-limit">PDF — max. 10&nbsp;Mo par fichier</div>
@@ -201,7 +204,7 @@
 </label></div>
 
 <div class="df-file"><label>
-<input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple/>
+<input type="file" name="fichier_autres[]" accept=".pdf,.jpg,.jpeg,.png" multiple/>
 <div class="file-info">
 <div class="file-name">Autres documents (marchés, contrats, décomptes, factures…)</div>
 <div class="file-limit">PDF, JPG ou PNG — plusieurs fichiers acceptés</div>
@@ -216,55 +219,54 @@
 <div class="df-section">
 <h3>5. Besoin en financement <span class="req" style="color:#dc2626;">*</span></h3>
 <div class="h-sub">Sélectionnez le ou les types de financement souhaités</div>
-<div class="df-check-grid">
+<div class="df-check-grid" data-required-group="Merci de sélectionner au moins un type de financement.">
 
 <label class="df-check">
-<input type="checkbox" name="besoin[]" value="investissement"/>
+<input type="checkbox" name="besoin[]" value="Financement de l'investissement" data-service="investissement"/>
 <div class="df-check-body"><strong>Financement de l'investissement</strong><span>Acquisition d'équipements, matériels, infrastructures ou actifs productifs</span></div>
 </label>
 
 <label class="df-check">
-<input type="checkbox" name="besoin[]" value="exploitation"/>
+<input type="checkbox" name="besoin[]" value="Financement de l'exploitation" data-service="exploitation"/>
 <div class="df-check-body"><strong>Financement de l'exploitation</strong><span>Besoins en fonds de roulement, approvisionnement, salaires et charges courantes</span></div>
 </label>
 
 <label class="df-check">
-<input type="checkbox" name="besoin[]" value="agriculture"/>
+<input type="checkbox" name="besoin[]" value="Financement de l'agriculture" data-service="agriculture"/>
 <div class="df-check-body"><strong>Financement de l'agriculture</strong><span>Intrants agricoles, équipements ruraux, campagnes agricoles et filières alimentaires</span></div>
 </label>
 
 <label class="df-check">
-<input type="checkbox" name="besoin[]" value="avance-facture"/>
+<input type="checkbox" name="besoin[]" value="Avance sur facture" data-service="avance-facture"/>
 <div class="df-check-body"><strong>Avance sur facture</strong><span>Mobilisation de créances sur factures émises et en attente de règlement</span></div>
 </label>
 
 <label class="df-check">
-<input type="checkbox" name="besoin[]" value="rachat-creance"/>
+<input type="checkbox" name="besoin[]" value="Rachat de créance" data-service="rachat-creance"/>
 <div class="df-check-body"><strong>Rachat de créance</strong><span>Cession de créances commerciales ou contractuelles à la Caisse</span></div>
 </label>
 
 <label class="df-check">
-<input type="checkbox" name="besoin[]" value="avance-decompte"/>
+<input type="checkbox" name="besoin[]" value="Avance sur décompte" data-service="avance-decompte"/>
 <div class="df-check-body"><strong>Avance sur décompte</strong><span>Préfinancement sur décomptes de travaux ou prestations en cours d'exécution</span></div>
 </label>
 
 </div>
-<div class="df-row" style="margin-top:20px;">
-<div class="df-field"><label>Montant estimatif du besoin (FCFA)</label><input type="text" name="montant" placeholder="Ex : 50 000 000"/></div>
-<div class="df-field"><label>Date souhaitée de mise à disposition</label><input type="date" name="date_besoin"/></div>
+<div class="df-row full" style="margin-top:20px;">
+<div class="df-field"><label>Montant estimatif du besoin (FCFA)</label><input type="text" name="montant" inputmode="numeric" placeholder="Ex : 50 000 000"/></div>
 </div>
 </div>
 
 <!-- DESCRIPTION -->
 <div class="df-section">
-<h3>6. Description du besoin</h3>
-<div class="h-sub">Détails et pièces jointes</div>
+<h3>6. Description du besoin et commentaires</h3>
+<div class="h-sub">Votre projet</div>
 <div class="df-row full">
 <div class="df-field"><label>Objet de la demande<span class="req">*</span></label><input type="text" name="objet" placeholder="Résumé en une ligne de votre demande" required/></div>
 </div>
 <div class="df-row full">
 <div class="df-field"><label>Présentation du projet / besoin spécifique<span class="req">*</span></label>
-<textarea name="projet" rows="6" placeholder="Décrivez en détail votre projet : contexte, objectifs, plan d'utilisation des fonds demandés, calendrier envisagé…" required></textarea>
+<textarea name="projet" rows="6" placeholder="Décrivez en détail votre projet, le contexte, les objectifs et le plan d'utilisation des fonds demandés" required></textarea>
 </div>
 </div>
 <div class="df-row full">
@@ -277,7 +279,7 @@
 <!-- SUBMIT -->
 <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
 <button type="submit" class="df-submit">Envoyer ma demande <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-<div style="font-size:12.5px;color:var(--gray-light);">Une équipe CDMP vous répondra sous 48&nbsp;heures ouvrées.</div>
+<div style="font-size:12.5px;color:var(--gray-light);">Taille maximale : 10&nbsp;Mo par fichier, 25&nbsp;Mo au total.</div>
 </div>
 
 <div class="df-consent">
@@ -294,8 +296,8 @@
 <a href="index.html" class="logo"><img src="img/cdmp-logo.svg" alt="CDMP - Caisse des Marchés Publics" class="logo-img logo-img-white"/></a>
 <p class="footer-contact-line">Almadies Zone 12, TF N°10820 NGA, Dakar — Sénégal<br/>+221 33 824 20 38</p>
 </div>
-<div class="footer-col"><h4>Offres</h4><ul>
-<li><a href="domaines-intervention.html">Domaines d'intervention</a></li>
+<div class="footer-col"><h4>Nos offres et services</h4><ul>
+<li><a href="domaines-intervention.html#offres">Nos offres et services</a></li>
 <li><a href="paykapital.html">PayKapital</a></li>
 <li><a href="eligibilite.html">Vérifier mon éligibilité</a></li>
 <li><a href="demande-financement.html">Demande de financement</a></li>
@@ -308,8 +310,9 @@
 </ul></div>
 <div class="footer-col"><h4>Newsletter</h4>
 <p class="footer-newsletter-text">Recevez nos actualités, publications et opportunités.</p>
-<form class="footer-newsletter-form">
-<input type="email" placeholder="Votre email" aria-label="Adresse email"/>
+<form class="footer-newsletter-form" data-formulaire="newsletter" action="api/envoi.php" method="post">
+<input type="text" name="site_hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+<input type="email" name="email" required placeholder="Votre email" aria-label="Adresse email"/>
 <button type="submit" class="btn-white">S'abonner</button>
 </form>
 </div>
@@ -325,5 +328,6 @@
 </div>
 </div>
 </footer>
+<script src="js/site.js" defer></script>
 </body>
 </html>

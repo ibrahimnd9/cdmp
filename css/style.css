@@ -249,3 +249,72 @@ section p, .cta-band p, .cta-box p, .actu-feature .body p, .form-card p{text-ali
   .pc-item{border-right:none;border-bottom:1px solid var(--border);}
   .pc-item:last-child{border-bottom:none;}
 }
+
+/* ==========================================================================
+   Révision octobre 2026 — harmonisation & nouveaux blocs
+   Hiérarchie des couleurs de titres :
+   - bleu institutionnel foncé (--blue-dark) : H1, H2, H3 ;
+   - bleu clair (--blue) : surtitres (eyebrows), numéros, accents.
+   ========================================================================== */
+h1,h2,h3{color:var(--blue-dark);}
+.info-card h3{color:#fff;}
+.eyebrow-line,.eyebrow,.actu-date,.pc-num{color:var(--blue);}
+.pc-q{color:var(--blue-dark);}
+.section-lead{font-size:15px;color:var(--gray);line-height:1.85;margin-bottom:28px;text-align:justify;}
+.section-lead.wide{max-width:820px;}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;}
+
+/* Photos réelles */
+.photo{border-radius:14px;overflow:hidden;background:var(--bg-alt2);box-shadow:0 18px 40px rgba(18,58,153,0.10);}
+.photo img{width:100%;height:100%;object-fit:cover;}
+.photo.ratio-4-3{aspect-ratio:4/3;}
+.photo.ratio-16-10{aspect-ratio:16/10;}
+.photo.ratio-3-4{aspect-ratio:3/4;}
+.photo.portrait{aspect-ratio:4/5;max-width:440px;margin-left:auto;}
+.photo figcaption,.photo-caption{font-size:12.5px;color:var(--gray-light);margin-top:10px;font-style:italic;}
+.photo-stack{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.photo-stack .photo:first-child{grid-column:1 / -1;}
+.photo-stack .photo{aspect-ratio:16/10;}
+
+/* Ils nous ont fait confiance */
+.partners-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;}
+.partner{background:#fff;border:1px solid var(--border);border-radius:12px;min-height:110px;padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;transition:border-color .15s ease,box-shadow .15s ease;}
+.partner:hover{border-color:#c7d2fe;box-shadow:0 10px 24px rgba(18,58,153,0.08);}
+.partner img{max-height:56px;width:auto;object-fit:contain;}
+.partner strong{font-size:15px;font-weight:800;color:var(--blue-dark);letter-spacing:.2px;}
+.partner span{font-size:11.5px;color:var(--gray-light);line-height:1.4;}
+.note-integration{font-size:12px;color:#9aa4b2;font-style:italic;margin-top:14px;}
+
+/* Réalisations (conventions) & publications */
+.real-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+.real-card{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;}
+.real-card .real-img{aspect-ratio:16/9;background:var(--bg-alt2);}
+.real-card .real-img img{width:100%;height:100%;object-fit:cover;}
+.real-card .real-img.no-photo{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--blue-dark),var(--blue));}
+.real-card .real-img.no-photo span{color:#fff;font-weight:800;font-size:22px;letter-spacing:.5px;text-align:center;padding:20px;}
+.real-card .body{padding:24px 26px 28px;}
+.real-card h3{font-size:18px;font-weight:800;line-height:1.35;margin-bottom:10px;}
+.real-card p{font-size:14.5px;color:var(--gray);line-height:1.75;}
+.real-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:6px 6px 0;}
+.real-thumbs img{aspect-ratio:4/3;object-fit:cover;border-radius:6px;width:100%;}
+.home-real-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:34px;}
+.home-real-grid .real-card h3{font-size:16px;}
+.home-real-grid .real-card p{font-size:13.5px;}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px;}
+.gallery img{aspect-ratio:4/3;object-fit:cover;border-radius:10px;width:100%;}
+
+/* Formulaires : retour d'envoi */
+.form-status{display:none;margin-top:18px;padding:14px 16px;border-radius:8px;font-size:14px;line-height:1.6;}
+.form-status.is-success{display:block;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;}
+.form-status.is-error{display:block;background:#fef2f2;border:1px solid #fecaca;color:#991b1b;}
+.footer-newsletter-form .form-status{font-size:12.5px;margin-top:4px;}
+.hp-field{position:absolute !important;left:-9999px !important;width:1px;height:1px;overflow:hidden;}
+.df-file.has-file{border-color:var(--blue);background:var(--blue-light);}
+button[disabled]{opacity:.7;cursor:wait;}
+
+@media (max-width:900px){
+  .real-grid,.home-real-grid{grid-template-columns:1fr;}
+  .gallery{grid-template-columns:1fr 1fr;}
+  .photo.portrait{margin:0 auto;}
+}
+.actu-feature .photo{min-height:320px;}
