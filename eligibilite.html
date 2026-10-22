@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vérifier mon éligibilité — CDMP</title>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.elig-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:12px;}
+.elig-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:0;overflow:hidden;transition:box-shadow .2s ease;}
+.elig-card:hover{box-shadow:0 18px 40px rgba(18,58,153,0.08);}
+.elig-head{background:var(--blue-dark);color:#fff;padding:22px 28px;display:flex;align-items:center;gap:18px;}
+.elig-head .num{background:rgba(255,255,255,0.15);width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex-shrink:0;}
+.elig-head h3{font-size:19px;font-weight:800;margin:0;color:#fff;}
+.elig-body{padding:24px 28px 28px;}
+.elig-body p.intro{font-size:14.5px;color:var(--gray);line-height:1.7;margin-bottom:18px;text-align:justify;}
+.elig-body h4{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--blue);margin-bottom:12px;}
+.elig-body ul{list-style:none;padding:0;margin:0;}
+.elig-body ul li{position:relative;padding:8px 0 8px 28px;font-size:14px;color:var(--ink);line-height:1.65;border-bottom:1px dashed var(--border);}
+.elig-body ul li:last-child{border-bottom:none;}
+.elig-body ul li::before{content:'✓';position:absolute;left:0;top:8px;width:20px;height:20px;background:var(--blue-light);color:var(--blue);border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.elig-cta{margin-top:20px;}
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="nav-inner">
+<a href="index.html" class="logo"><img src="img/cdmp-logo.svg" alt="CDMP - Caisse des Marchés Publics" class="logo-img"/></a>
+<input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox"/>
+<nav class="nav-links">
+<div class="nav-item"><a class="" href="index.html">Accueil</a></div>
+<div class="nav-item"><a class="" href="presentation.html">Présentation</a>
+<div class="mega">
+<div class="mega-col"><h5>Institution</h5>
+<a href="presentation.html#a-propos">A propos</a>
+<a href="presentation.html#missions">Missions</a>
+<a href="presentation.html#gouvernance">Gouvernance</a>
+<a href="presentation.html#mot-du-directeur">Mot du directeur</a>
+</div>
+</div></div>
+<div class="nav-item"><a class="active" href="domaines-intervention.html">Domaines d'intervention</a>
+<div class="mega">
+<div class="mega-col"><h5>Nos solutions</h5>
+<a href="domaines-intervention.html#offres">Offres</a>
+<a href="domaines-intervention.html#solutions">Services</a>
+<a href="eligibilite.html">Vérifier mon éligibilité</a>
+</div>
+</div></div>
+<div class="nav-item"><a class="" href="paykapital.html">PayKapital</a></div>
+<div class="nav-item"><a class="" href="actualites.html">Actualités</a>
+<div class="mega">
+<div class="mega-col"><h5>Suivre la CDMP</h5>
+<a href="actualites.html#publications">Publications</a>
+<a href="actualites.html#realisations">Réalisations</a>
+</div>
+</div></div>
+<div class="nav-item"><a class="" href="contact.html">Contact</a></div>
+<a href="demande-financement.html" class="btn-nav btn-nav-mobile">Financer mon marché</a>
+</nav>
+<a href="demande-financement.html" class="btn-nav btn-nav-desktop">Financer mon marché</a>
+<label for="nav-toggle" class="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></label>
+</div>
+</header>
+
+<section class="page-hero">
+<div class="wrap">
+<span class="eyebrow">VÉRIFIER MON ÉLIGIBILITÉ</span>
+<h1>Suis-je éligible à un financement <span>CDMP</span>&nbsp;?</h1>
+<p class="lead">Chaque service de la CDMP répond à un besoin précis et suit des critères d'éligibilité clairs. Consultez ci-dessous les conditions correspondant à votre situation et déposez votre demande en quelques minutes.</p>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="eyebrow-line">SIX SERVICES, DES CRITÈRES CLAIRS</div>
+<h2 class="section-title">Choisissez votre situation, découvrez vos conditions d'éligibilité.</h2>
+<p class="section-sub">Nos six mécanismes de financement s'adressent chacun à un profil d'entreprise et à un type de besoin spécifiques. Vérifiez si vous remplissez les critères, puis faites votre demande directement en ligne.</p>
+
+<div class="elig-grid">
+
+<div class="elig-card">
+<div class="elig-head"><div class="num">01</div><h3>Avance sur facture</h3></div>
+<div class="elig-body">
+<p class="intro">Prestations ou livraisons déjà réalisées et en attente de règlement&nbsp;: transformez immédiatement vos créances en liquidités.</p>
+<h4>Vous êtes éligible si&nbsp;:</h4>
+<ul>
+<li>Vous exécutez un marché (public ou privé) achevé, au moins partiellement</li>
+<li>Vos factures ont été émises et certifiées par le donneur d'ordre</li>
+<li>Votre créance n'est pas encore réglée et se situe dans les délais de paiement en cours</li>
+</ul>
+<div class="elig-cta"><a href="demande-financement.html?service=avance-facture" class="btn-primary">Faire ma demande <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div>
+</div>
+
+<div class="elig-card">
+<div class="elig-head"><div class="num">02</div><h3>Avance sur décomptes</h3></div>
+<div class="elig-body">
+<p class="intro">Marché à paiement échelonné par phases&nbsp;: recevez une avance dès l'introduction de chaque décompte, sans rupture de trésorerie.</p>
+<h4>Vous êtes éligible si&nbsp;:</h4>
+<ul>
+<li>Votre marché prévoit des paiements par tranches ou phases successives (typique des marchés de travaux)</li>
+<li>Vous avez introduit un décompte auprès du donneur d'ordre, correspondant à un avancement réel des travaux ou prestations</li>
+<li>Votre marché est en cours d'exécution, sans interruption entre deux phases</li>
+</ul>
+<div class="elig-cta"><a href="demande-financement.html?service=avance-decompte" class="btn-primary">Faire ma demande <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div>
+</div>
+
+<div class="elig-card">
+<div class="elig-head"><div class="num">03</div><h3>Rachat de créances</h3></div>
+<div class="elig-body">
+<p class="intro">Cédez une créance détenue sur un donneur d'ordre avec une décote négociée&nbsp;: récupérez rapidement la valeur de vos créances.</p>
+<h4>Vous êtes éligible si&nbsp;:</h4>
+<ul>
+<li>Vous détenez une créance certaine et identifiable sur un donneur d'ordre public ou privé</li>
+<li>Vous acceptez le principe d'une décote négociée d'un commun accord</li>
+<li>Vous cherchez à accélérer votre cycle de trésorerie et à réduire l'exposition au risque de retard de paiement</li>
+</ul>
+<div class="elig-cta"><a href="demande-financement.html?service=rachat-creance" class="btn-primary">Faire ma demande <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div>
+</div>
+
+<div class="elig-card">
+<div class="elig-head"><div class="num">04</div><h3>Financement de l'exploitation</h3></div>
+<div class="elig-body">
+<p class="intro">Couverture des charges incompressibles&nbsp;: matières premières, frais de fonctionnement, charges sociales, cycle client / fournisseur, stock.</p>
+<h4>Vous êtes éligible si&nbsp;:</h4>
+<ul>
+<li>Votre entreprise est en activité, avec des charges courantes récurrentes à honorer</li>
+<li>Votre besoin est justifié par des pièces (factures fournisseurs, charges sociales, etc.)</li>
+<li>La continuité de votre activité est menacée par un décalage de trésorerie et non par un déficit structurel</li>
+</ul>
+<div class="elig-cta"><a href="demande-financement.html?service=exploitation" class="btn-primary">Faire ma demande <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div>
+</div>
+
+<div class="elig-card">
+<div class="elig-head"><div class="num">05</div><h3>Financement de l'investissement</h3></div>
+<div class="elig-body">
+<p class="intro">Projets à long terme adaptés à vos ambitions et à votre capacité de remboursement&nbsp;: équipements, capacités productives, modernisation.</p>
+<h4>Vous êtes éligible si&nbsp;:</h4>
+<ul>
+<li>Vous portez un projet identifié&nbsp;: acquisition d'équipements, développement de capacités productives ou modernisation d'infrastructures</li>
+<li>Vous démontrez une capacité de remboursement crédible</li>
+<li>Votre investissement est cohérent avec la stratégie de croissance de votre PME</li>
+</ul>
+<div class="elig-cta"><a href="demande-financement.html?service=investissement" class="btn-primary">Faire ma demande <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div>
+</div>
+
+<div class="elig-card">
+<div class="elig-head"><div class="num">06</div><h3>Financement de l'agriculture</h3></div>
+<div class="elig-body">
+<p class="intro">Solutions dédiées aux acteurs agricoles confrontés à un accès limité au financement, à la vulnérabilité climatique et au manque d'équipements.</p>
+<h4>Vous êtes éligible si&nbsp;:</h4>
+<ul>
+<li>Vous êtes un acteur du secteur agricole (exploitant, coopérative, structure de transformation)</li>
+<li>Votre besoin porte sur des équipements, des infrastructures de stockage ou de transformation, des semences ou des intrants</li>
+<li>Vous souhaitez couvrir les risques de fluctuation de marché ou climatiques associés à votre activité</li>
+</ul>
+<div class="elig-cta"><a href="demande-financement.html?service=agriculture" class="btn-primary">Faire ma demande <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="cta-box-section">
+<div class="wrap">
+<div class="cta-box">
+<div>
+<h2>Un doute sur votre éligibilité&nbsp;?</h2>
+<p>Nos conseillers examinent votre dossier gratuitement et vous orientent vers la solution la mieux adaptée à votre situation. Prenez contact&nbsp;: nous vous répondons sous 48&nbsp;heures.</p>
+</div>
+<a href="contact.html" class="btn-primary">Parler à un conseiller <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+</div>
+</section>
+
+<footer class="site-footer">
+<div class="wrap footer-top">
+<div class="footer-brand">
+<a href="index.html" class="logo"><img src="img/cdmp-logo.svg" alt="CDMP - Caisse des Marchés Publics" class="logo-img logo-img-white"/></a>
+<p class="footer-contact-line">Almadies Zone 12, TF N°10820 NGA, Dakar — Sénégal<br/>+221 33 824 20 38</p>
+</div>
+<div class="footer-col"><h4>Offres</h4><ul>
+<li><a href="domaines-intervention.html">Domaines d'intervention</a></li>
+<li><a href="paykapital.html">PayKapital</a></li>
+<li><a href="eligibilite.html">Vérifier mon éligibilité</a></li>
+<li><a href="demande-financement.html">Demande de financement</a></li>
+</ul></div>
+<div class="footer-col"><h4>A propos</h4><ul>
+<li><a href="presentation.html#a-propos">Qui sommes-nous</a></li>
+<li><a href="presentation.html#missions">Nos missions</a></li>
+<li><a href="presentation.html#gouvernance">Gouvernance</a></li>
+<li><a href="presentation.html#mot-du-directeur">Mot du directeur</a></li>
+</ul></div>
+<div class="footer-col"><h4>Newsletter</h4>
+<p class="footer-newsletter-text">Recevez nos actualités, publications et opportunités.</p>
+<form class="footer-newsletter-form">
+<input type="email" placeholder="Votre email" aria-label="Adresse email"/>
+<button type="submit" class="btn-white">S'abonner</button>
+</form>
+</div>
+</div>
+<div class="wrap footer-bottom">
+<div class="footer-bottom-left">
+<span>© 2026 Caisse des Marchés Publics (CDMP). Tous droits réservés.</span>
+<div class="links"><a href="#">Politique de confidentialité</a><a href="#">Mentions légales</a></div>
+</div>
+<div class="social-row social-row-footer">
+<a href="https://www.linkedin.com/company/cdmp/" target="_blank" rel="noopener" aria-label="LinkedIn CDMP"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 21v-7a3 3 0 0 1 6 0v7M10 12v9"/></svg></a>
+<a href="https://www.facebook.com/CDMPSA" target="_blank" rel="noopener" aria-label="Facebook CDMP"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+</div>
+</div>
+</footer>
+</body>
+</html>

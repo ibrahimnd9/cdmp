@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Demande de financement — CDMP</title>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.df-form{background:#fff;border:1px solid var(--border);border-radius:14px;padding:44px;box-shadow:0 4px 24px rgba(18,58,153,0.06);}
+.df-section{margin-bottom:36px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.df-section:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.df-section h3{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:1.4px;color:var(--blue);margin-bottom:6px;}
+.df-section .h-sub{font-size:20px;font-weight:800;color:var(--blue-dark);margin-bottom:22px;}
+.df-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:18px;}
+.df-row.three{grid-template-columns:1fr 1fr 1fr;}
+.df-row.full{grid-template-columns:1fr;}
+.df-field label{display:block;font-size:12.5px;font-weight:700;color:var(--gray);margin-bottom:8px;}
+.df-field label .req{color:#dc2626;margin-left:2px;}
+.df-field input,.df-field textarea,.df-field select{width:100%;background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:14.5px;color:var(--ink);font-family:inherit;transition:border-color .15s ease, background .15s ease;}
+.df-field input:focus,.df-field textarea:focus,.df-field select:focus{outline:none;border-color:var(--blue);background:#fff;}
+.df-field select{appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%236b7280%22 stroke-width=%222%22><path d=%22M6 9l6 6 6-6%22/></svg>');background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px;}
+.df-field textarea{resize:vertical;min-height:110px;}
+.df-file{border:1.5px dashed var(--border);border-radius:10px;padding:16px 18px;background:#f8fafc;transition:border-color .15s ease;}
+.df-file:hover{border-color:var(--blue);}
+.df-file label{display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin:0;}
+.df-file input[type=file]{display:none;}
+.df-file .file-info{flex:1;}
+.df-file .file-name{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.df-file .file-name .req{color:#dc2626;}
+.df-file .file-limit{font-size:12px;color:var(--gray-light);}
+.df-file .file-btn{background:var(--blue-light);color:var(--blue);font-size:12px;font-weight:700;padding:6px 12px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px;flex-shrink:0;margin-top:2px;}
+.df-check-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.df-check{background:#f8fafc;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;transition:all .15s ease;}
+.df-check:hover{border-color:var(--blue);background:var(--blue-light);}
+.df-check input[type=checkbox]{margin-top:3px;accent-color:var(--blue);width:16px;height:16px;flex-shrink:0;cursor:pointer;}
+.df-check .df-check-body strong{display:block;font-size:14px;color:var(--ink);font-weight:700;margin-bottom:2px;}
+.df-check .df-check-body span{display:block;font-size:12.5px;color:var(--gray-light);line-height:1.5;}
+.df-submit{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%);border:none;color:#fff;padding:16px 34px;border-radius:10px;font-size:15px;font-weight:700;letter-spacing:.4px;cursor:pointer;display:inline-flex;align-items:center;gap:10px;box-shadow:0 8px 20px rgba(18,58,153,0.25);transition:transform .15s ease, box-shadow .15s ease;}
+.df-submit:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(18,58,153,0.3);}
+.df-consent{font-size:12.5px;color:var(--gray-light);line-height:1.6;background:var(--blue-light);border-radius:8px;padding:14px 16px;margin-top:18px;text-align:justify;}
+.df-consent strong{color:var(--blue-dark);}
+.df-hero-note{background:#fff;border-left:4px solid var(--blue);padding:16px 20px;border-radius:8px;margin-top:24px;font-size:14px;color:var(--gray);line-height:1.7;}
+@media (max-width:900px){
+  .df-form{padding:26px;}
+  .df-row,.df-row.three,.df-check-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="nav-inner">
+<a href="index.html" class="logo"><img src="img/cdmp-logo.svg" alt="CDMP - Caisse des Marchés Publics" class="logo-img"/></a>
+<input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox"/>
+<nav class="nav-links">
+<div class="nav-item"><a class="" href="index.html">Accueil</a></div>
+<div class="nav-item"><a class="" href="presentation.html">Présentation</a>
+<div class="mega">
+<div class="mega-col"><h5>Institution</h5>
+<a href="presentation.html#a-propos">A propos</a>
+<a href="presentation.html#missions">Missions</a>
+<a href="presentation.html#gouvernance">Gouvernance</a>
+<a href="presentation.html#mot-du-directeur">Mot du directeur</a>
+</div>
+</div></div>
+<div class="nav-item"><a class="" href="domaines-intervention.html">Domaines d'intervention</a>
+<div class="mega">
+<div class="mega-col"><h5>Nos solutions</h5>
+<a href="domaines-intervention.html#offres">Offres</a>
+<a href="domaines-intervention.html#solutions">Services</a>
+<a href="eligibilite.html">Vérifier mon éligibilité</a>
+</div>
+</div></div>
+<div class="nav-item"><a class="" href="paykapital.html">PayKapital</a></div>
+<div class="nav-item"><a class="" href="actualites.html">Actualités</a>
+<div class="mega">
+<div class="mega-col"><h5>Suivre la CDMP</h5>
+<a href="actualites.html#publications">Publications</a>
+<a href="actualites.html#realisations">Réalisations</a>
+</div>
+</div></div>
+<div class="nav-item"><a class="" href="contact.html">Contact</a></div>
+<a href="demande-financement.html" class="btn-nav btn-nav-mobile">Financer mon marché</a>
+</nav>
+<a href="demande-financement.html" class="btn-nav btn-nav-desktop">Financer mon marché</a>
+<label for="nav-toggle" class="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></label>
+</div>
+</header>
+
+<section class="page-hero">
+<div class="wrap">
+<span class="eyebrow">FORMULAIRE OFFICIEL</span>
+<h1>Demande de <span>financement</span></h1>
+<p class="lead">Complétez ce formulaire pour introduire une demande de financement auprès de la Caisse des Marchés Publics. Nos équipes analysent votre dossier et vous répondent dans les meilleurs délais.</p>
+<div class="df-hero-note">Les champs marqués d'un <strong style="color:#dc2626;">*</strong> sont obligatoires. Vos informations sont traitées de manière confidentielle par la CDMP.</div>
+</div>
+</section>
+
+<section style="padding:52px 0 90px;">
+<div class="wrap" style="max-width:960px;">
+<form class="df-form">
+
+<!-- INFOS PERSONNELLES -->
+<div class="df-section">
+<h3>1. Informations personnelles</h3>
+<div class="h-sub">À propos du demandeur</div>
+<div class="df-row">
+<div class="df-field"><label>Nom<span class="req">*</span></label><input type="text" name="nom" required/></div>
+<div class="df-field"><label>Prénom<span class="req">*</span></label><input type="text" name="prenom" required/></div>
+</div>
+<div class="df-row">
+<div class="df-field"><label>Fonction / Qualité<span class="req">*</span></label><input type="text" name="fonction" placeholder="Ex : Directeur Général" required/></div>
+<div class="df-field"><label>Nationalité</label><input type="text" name="nationalite" placeholder="Ex : Sénégalaise"/></div>
+</div>
+</div>
+
+<!-- IDENTIFICATION ENTREPRISE -->
+<div class="df-section">
+<h3>2. Identification de l'entreprise</h3>
+<div class="h-sub">Votre société</div>
+<div class="df-row full">
+<div class="df-field"><label>Raison sociale<span class="req">*</span></label><input type="text" name="raison_sociale" required/></div>
+</div>
+<div class="df-row">
+<div class="df-field"><label>Forme juridique<span class="req">*</span></label>
+<select name="forme_juridique" required>
+<option value="" disabled selected>Sélectionnez</option>
+<option>SARL</option>
+<option>SA</option>
+<option>SAS</option>
+<option>GIE</option>
+<option>Entreprise individuelle</option>
+<option>Autre</option>
+</select>
+</div>
+<div class="df-field"><label>Secteur d'activité<span class="req">*</span></label>
+<select name="secteur" required>
+<option value="" disabled selected>Sélectionnez</option>
+<option>BTP / Travaux publics</option>
+<option>Commerce</option>
+<option>Agriculture / Élevage</option>
+<option>Industrie</option>
+<option>Services</option>
+<option>Autre</option>
+</select>
+</div>
+</div>
+<div class="df-row">
+<div class="df-field"><label>Numéro RCCM<span class="req">*</span></label><input type="text" name="rccm" required/></div>
+<div class="df-field"><label>NINEA<span class="req">*</span></label><input type="text" name="ninea" required/></div>
+</div>
+</div>
+
+<!-- COORDONNÉES -->
+<div class="df-section">
+<h3>3. Coordonnées de contact</h3>
+<div class="h-sub">Où vous joindre</div>
+<div class="df-row full">
+<div class="df-field"><label>Adresse du siège social<span class="req">*</span></label><input type="text" name="adresse" placeholder="Rue, quartier, ville, région, pays" required/></div>
+</div>
+<div class="df-row">
+<div class="df-field"><label>Téléphone principal<span class="req">*</span></label><input type="tel" name="tel1" placeholder="+221 ..." required/></div>
+<div class="df-field"><label>Téléphone secondaire</label><input type="tel" name="tel2" placeholder="+221 ..."/></div>
+</div>
+<div class="df-row">
+<div class="df-field"><label>Adresse e-mail<span class="req">*</span></label><input type="email" name="email" placeholder="nom@entreprise.com" required/></div>
+<div class="df-field"><label>Site web</label><input type="url" name="site_web" placeholder="https://..."/></div>
+</div>
+</div>
+
+<!-- PIÈCES JUSTIFICATIVES -->
+<div class="df-section">
+<h3>4. Pièces justificatives</h3>
+<div class="h-sub">Documents à joindre au dossier</div>
+<div style="display:flex;flex-direction:column;gap:14px;">
+
+<div class="df-file"><label>
+<input type="file" accept=".pdf,.jpg,.jpeg,.png" required/>
+<div class="file-info">
+<div class="file-name">Registre du Commerce et du Crédit Mobilier (RCCM) <span class="req">*</span></div>
+<div class="file-limit">PDF, JPG ou PNG — max. 5&nbsp;Mo</div>
+</div>
+<span class="file-btn">Parcourir</span>
+</label></div>
+
+<div class="df-file"><label>
+<input type="file" accept=".pdf,.jpg,.jpeg,.png" required/>
+<div class="file-info">
+<div class="file-name">Numéro d'Identification Nationale des Entreprises et Associations (NINEA) <span class="req">*</span></div>
+<div class="file-limit">PDF, JPG ou PNG — max. 5&nbsp;Mo</div>
+</div>
+<span class="file-btn">Parcourir</span>
+</label></div>
+
+<div class="df-file"><label>
+<input type="file" accept=".pdf" multiple required/>
+<div class="file-info">
+<div class="file-name">États financiers — bilans des 3 derniers exercices <span class="req">*</span></div>
+<div class="file-limit">PDF — max. 10&nbsp;Mo par fichier</div>
+</div>
+<span class="file-btn">Parcourir</span>
+</label></div>
+
+<div class="df-file"><label>
+<input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple/>
+<div class="file-info">
+<div class="file-name">Autres documents (marchés, contrats, décomptes, factures…)</div>
+<div class="file-limit">PDF, JPG ou PNG — plusieurs fichiers acceptés</div>
+</div>
+<span class="file-btn">Parcourir</span>
+</label></div>
+
+</div>
+</div>
+
+<!-- BESOIN -->
+<div class="df-section">
+<h3>5. Besoin en financement <span class="req" style="color:#dc2626;">*</span></h3>
+<div class="h-sub">Sélectionnez le ou les types de financement souhaités</div>
+<div class="df-check-grid">
+
+<label class="df-check">
+<input type="checkbox" name="besoin[]" value="investissement"/>
+<div class="df-check-body"><strong>Financement de l'investissement</strong><span>Acquisition d'équipements, matériels, infrastructures ou actifs productifs</span></div>
+</label>
+
+<label class="df-check">
+<input type="checkbox" name="besoin[]" value="exploitation"/>
+<div class="df-check-body"><strong>Financement de l'exploitation</strong><span>Besoins en fonds de roulement, approvisionnement, salaires et charges courantes</span></div>
+</label>
+
+<label class="df-check">
+<input type="checkbox" name="besoin[]" value="agriculture"/>
+<div class="df-check-body"><strong>Financement de l'agriculture</strong><span>Intrants agricoles, équipements ruraux, campagnes agricoles et filières alimentaires</span></div>
+</label>
+
+<label class="df-check">
+<input type="checkbox" name="besoin[]" value="avance-facture"/>
+<div class="df-check-body"><strong>Avance sur facture</strong><span>Mobilisation de créances sur factures émises et en attente de règlement</span></div>
+</label>
+
+<label class="df-check">
+<input type="checkbox" name="besoin[]" value="rachat-creance"/>
+<div class="df-check-body"><strong>Rachat de créance</strong><span>Cession de créances commerciales ou contractuelles à la Caisse</span></div>
+</label>
+
+<label class="df-check">
+<input type="checkbox" name="besoin[]" value="avance-decompte"/>
+<div class="df-check-body"><strong>Avance sur décompte</strong><span>Préfinancement sur décomptes de travaux ou prestations en cours d'exécution</span></div>
+</label>
+
+</div>
+<div class="df-row" style="margin-top:20px;">
+<div class="df-field"><label>Montant estimatif du besoin (FCFA)</label><input type="text" name="montant" placeholder="Ex : 50 000 000"/></div>
+<div class="df-field"><label>Date souhaitée de mise à disposition</label><input type="date" name="date_besoin"/></div>
+</div>
+</div>
+
+<!-- DESCRIPTION -->
+<div class="df-section">
+<h3>6. Description du besoin</h3>
+<div class="h-sub">Détails et pièces jointes</div>
+<div class="df-row full">
+<div class="df-field"><label>Objet de la demande<span class="req">*</span></label><input type="text" name="objet" placeholder="Résumé en une ligne de votre demande" required/></div>
+</div>
+<div class="df-row full">
+<div class="df-field"><label>Présentation du projet / besoin spécifique<span class="req">*</span></label>
+<textarea name="projet" rows="6" placeholder="Décrivez en détail votre projet : contexte, objectifs, plan d'utilisation des fonds demandés, calendrier envisagé…" required></textarea>
+</div>
+</div>
+<div class="df-row full">
+<div class="df-field"><label>Commentaires complémentaires</label>
+<textarea name="commentaires" rows="4" placeholder="Toute information utile à l'analyse de votre dossier"></textarea>
+</div>
+</div>
+</div>
+
+<!-- SUBMIT -->
+<div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+<button type="submit" class="df-submit">Envoyer ma demande <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+<div style="font-size:12.5px;color:var(--gray-light);">Une équipe CDMP vous répondra sous 48&nbsp;heures ouvrées.</div>
+</div>
+
+<div class="df-consent">
+<strong>Protection des données&nbsp;:</strong> vos informations sont traitées de manière confidentielle par la Caisse des Marchés Publics. Elles ne sont utilisées que dans le cadre de l'analyse de votre demande de financement et ne sont partagées qu'avec les partenaires financiers concernés, dans le strict respect de la réglementation en vigueur.
+</div>
+
+</form>
+</div>
+</section>
+
+<footer class="site-footer">
+<div class="wrap footer-top">
+<div class="footer-brand">
+<a href="index.html" class="logo"><img src="img/cdmp-logo.svg" alt="CDMP - Caisse des Marchés Publics" class="logo-img logo-img-white"/></a>
+<p class="footer-contact-line">Almadies Zone 12, TF N°10820 NGA, Dakar — Sénégal<br/>+221 33 824 20 38</p>
+</div>
+<div class="footer-col"><h4>Offres</h4><ul>
+<li><a href="domaines-intervention.html">Domaines d'intervention</a></li>
+<li><a href="paykapital.html">PayKapital</a></li>
+<li><a href="eligibilite.html">Vérifier mon éligibilité</a></li>
+<li><a href="demande-financement.html">Demande de financement</a></li>
+</ul></div>
+<div class="footer-col"><h4>A propos</h4><ul>
+<li><a href="presentation.html#a-propos">Qui sommes-nous</a></li>
+<li><a href="presentation.html#missions">Nos missions</a></li>
+<li><a href="presentation.html#gouvernance">Gouvernance</a></li>
+<li><a href="presentation.html#mot-du-directeur">Mot du directeur</a></li>
+</ul></div>
+<div class="footer-col"><h4>Newsletter</h4>
+<p class="footer-newsletter-text">Recevez nos actualités, publications et opportunités.</p>
+<form class="footer-newsletter-form">
+<input type="email" placeholder="Votre email" aria-label="Adresse email"/>
+<button type="submit" class="btn-white">S'abonner</button>
+</form>
+</div>
+</div>
+<div class="wrap footer-bottom">
+<div class="footer-bottom-left">
+<span>© 2026 Caisse des Marchés Publics (CDMP). Tous droits réservés.</span>
+<div class="links"><a href="#">Politique de confidentialité</a><a href="#">Mentions légales</a></div>
+</div>
+<div class="social-row social-row-footer">
+<a href="https://www.linkedin.com/company/cdmp/" target="_blank" rel="noopener" aria-label="LinkedIn CDMP"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 21v-7a3 3 0 0 1 6 0v7M10 12v9"/></svg></a>
+<a href="https://www.facebook.com/CDMPSA" target="_blank" rel="noopener" aria-label="Facebook CDMP"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+</div>
+</div>
+</footer>
+</body>
+</html>
