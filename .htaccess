@@ -4,6 +4,10 @@ RewriteEngine On
 # Laisser passer la validation des certificats Let's Encrypt
 RewriteRule ^\.well-known/ - [L]
 
+# Fichiers internes non publics (documents sources, notes techniques)
+RewriteRule ^docs/ - [F,L]
+RewriteRule ^(README\.md|\.gitignore)$ - [F,L]
+
 # www -> domaine principal
 RewriteCond %{HTTP_HOST} ^www\.cdmpofficiel\.sn$ [NC]
 RewriteRule ^(.*)$ https://cdmpofficiel.sn/$1 [R=301,L]
