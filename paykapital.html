@@ -108,6 +108,18 @@ header.pk-header{position:sticky;top:0;z-index:50;background:rgba(247,245,238,0.
 .pk-step p{font-size:14.5px;color:var(--gray);line-height:1.6;font-weight:500;text-align:center;}
 @media (max-width:900px){ .pk-steps{grid-template-columns:1fr;gap:36px;} .pk-steps::before{display:none;} }
 
+/* ---------- EN ACTION strip ---------- */
+.pk-action{padding:0;background:var(--paper);}
+.pk-action-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+.pk-action-item{position:relative;height:340px;overflow:hidden;}
+.pk-action-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.pk-action-item:hover img{transform:scale(1.05);}
+.pk-action-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,27,61,0.10) 30%,rgba(15,27,61,0.85) 100%);}
+.pk-action-content{position:absolute;bottom:0;left:0;right:0;padding:26px;z-index:2;color:#fff;}
+.pk-action-content .tag{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-2);margin-bottom:8px;display:block;}
+.pk-action-content h4{font-family:var(--font-display);font-size:20px;font-weight:600;color:#fff;line-height:1.25;}
+@media (max-width:900px){ .pk-action-wrap{grid-template-columns:1fr;} .pk-action-item{height:260px;} }
+
 /* ---------- SOLUTIONS ---------- */
 .pk-catalog{background:var(--paper);}
 .solutions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:40px;}
@@ -288,6 +300,33 @@ cdmp.sn
 <div class="pk-step-num">03</div>
 <h3>Accélérer</h3>
 <p>Libérer la trésorerie nécessaire pour produire, livrer et grandir, sans attendre l'échéance finale.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTEURS : PayKapital en action -->
+<section class="pk-action" id="secteurs">
+<div class="pk-action-wrap">
+<div class="pk-action-item">
+<img loading="lazy" src="https://images.unsplash.com/photo-1690323223790-4df744a1a033?w=900&q=80&auto=format&fit=crop" alt="Vue de Dakar" onerror="this.src='https://images.unsplash.com/photo-1611258490565-4a06c019e631?w=900&q=80&auto=format&fit=crop';"/>
+<div class="pk-action-content">
+<span class="tag">BTP · Travaux publics</span>
+<h4>Exécuter les marchés<br/>sans rupture de chantier.</h4>
+</div>
+</div>
+<div class="pk-action-item">
+<img loading="lazy" src="https://images.unsplash.com/photo-1625989744655-9bff7a23dac4?w=900&q=80&auto=format&fit=crop" alt="Vie commerciale au Sénégal" onerror="this.src='https://images.unsplash.com/photo-1644772088209-c71d5c59f719?w=900&q=80&auto=format&fit=crop';"/>
+<div class="pk-action-content">
+<span class="tag">Commerce · Distribution</span>
+<h4>Approvisionner sans<br/>attendre le règlement client.</h4>
+</div>
+</div>
+<div class="pk-action-item">
+<img loading="lazy" src="https://images.unsplash.com/photo-1580629677996-fded70cdfd4c?w=900&q=80&auto=format&fit=crop" alt="Sine Saloum, filières sénégalaises" onerror="this.src='https://images.unsplash.com/photo-1629042976993-95f6a04cf3af?w=900&q=80&auto=format&fit=crop';"/>
+<div class="pk-action-content">
+<span class="tag">Agriculture · Filières</span>
+<h4>Financer la campagne<br/>dès le bon de commande.</h4>
 </div>
 </div>
 </div>
