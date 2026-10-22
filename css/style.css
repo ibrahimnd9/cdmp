@@ -318,3 +318,5 @@ button[disabled]{opacity:.7;cursor:wait;}
   .photo.portrait{margin:0 auto;}
 }
 .actu-feature .photo{min-height:320px;}
+.footer-credit a{color:rgba(255,255,255,0.75);text-decoration:underline;}
+.footer-credit a:hover{color:#fff;}
