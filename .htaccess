@@ -1,0 +1,14 @@
+# Adresse unique du site : https://cdmpofficiel.sn
+RewriteEngine On
+
+# Laisser passer la validation des certificats Let's Encrypt
+RewriteRule ^\.well-known/ - [L]
+
+# www -> domaine principal
+RewriteCond %{HTTP_HOST} ^www\.cdmpofficiel\.sn$ [NC]
+RewriteRule ^(.*)$ https://cdmpofficiel.sn/$1 [R=301,L]
+
+# http -> https
+RewriteCond %{HTTP_HOST} ^cdmpofficiel\.sn$ [NC]
+RewriteCond %{SERVER_PORT} ^80$
+RewriteRule ^(.*)$ https://cdmpofficiel.sn/$1 [R=301,L]
