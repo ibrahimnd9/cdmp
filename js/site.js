@@ -152,4 +152,28 @@ document.addEventListener("DOMContentLoaded", function () {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); lancer(); }
     });
   });
+
+  /* ---------- Schéma écosystème PayKapital (interactif) ---------- */
+  var eco = document.querySelector(".eco-wrap");
+  if (eco) {
+    var nodes = eco.querySelectorAll(".eco-node");
+    var links = eco.querySelectorAll(".eco-link");
+    var items = eco.querySelectorAll(".eco-panel-item");
+    var activer = function (key) {
+      nodes.forEach(function (n) {
+        var on = n.getAttribute("data-node") === key;
+        n.classList.toggle("active", on);
+        n.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      links.forEach(function (l) { l.classList.toggle("active", l.getAttribute("data-node") === key); });
+      items.forEach(function (p) { p.hidden = p.getAttribute("data-node") !== key; });
+    };
+    nodes.forEach(function (n) {
+      n.addEventListener("click", function () { activer(n.getAttribute("data-node")); });
+      n.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); activer(n.getAttribute("data-node")); }
+      });
+    });
+    activer(eco.getAttribute("data-default") || "entreprises");
+  }
 });
