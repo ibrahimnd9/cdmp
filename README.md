@@ -13,6 +13,12 @@ api/lib/Mailer.php     envoi MIME (SMTP authentifié ou mail())
 docs/sources/          documents de référence transmis par la CDMP
 ```
 
+## Hébergement actuel : OVH (cdmpofficiel.sn)
+
+- Déploiement automatique : chaque push sur la branche configurée dans OVH (Multisite → Git) déclenche une mise à jour via le webhook GitHub (Content type `application/json`, pas de secret).
+- `.htaccess` (racine) redirige `http://` et `www.` vers `https://cdmpofficiel.sn`.
+- Hébergement mutualisé OVH = Apache + PHP : la configuration nginx ci-dessous ne s'applique pas. Dans `api/config.php`, utiliser `'transport' => 'mail'` avec un `from_email` en `@cdmpofficiel.sn`.
+
 ## Mise en ligne des formulaires
 
 Le serveur actuel (nginx) ne sert que des fichiers statiques : **PHP 8.0+ (PHP-FPM) doit être activé** pour `api/envoi.php`. Exemple nginx :
