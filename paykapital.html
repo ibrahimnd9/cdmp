@@ -153,6 +153,29 @@ header.pk-header{position:sticky;top:0;z-index:50;background:rgba(247,245,238,0.
 .eco-panel .hint{font-size:12px;color:var(--gray-light);margin-top:18px;}
 @media (max-width:900px){ .eco-wrap{grid-template-columns:1fr;padding:28px 18px;} .eco-panel .hint{display:none;} }
 
+/* ---------- ACTOR photo ---------- */
+.pk-actor-photo{width:100%;height:120px;border-radius:12px;overflow:hidden;margin-bottom:16px;}
+.pk-actor-photo img{width:100%;height:100%;object-fit:cover;}
+
+/* ---------- ACTEURS ---------- */
+.pk-actors{background:var(--navy);color:#fff;}
+.pk-actors h2{color:#fff;}
+.pk-actors h2 em{color:var(--blue-2);}
+.pk-actors .pk-section-lbl{color:var(--blue-2);}
+.pk-actors .pk-section-lbl::before{background:var(--blue-2);}
+.pk-actors .sub-hero{color:rgba(255,255,255,0.7);}
+.pk-actors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px;}
+.pk-actor{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);border-radius:16px;padding:24px;transition:background .2s ease;}
+.pk-actor:hover{background:rgba(255,255,255,0.08);}
+.pk-actor-ico{width:42px;height:42px;border-radius:11px;background:rgba(43,124,224,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.pk-actor-ico svg{width:22px;height:22px;stroke:var(--blue-2);fill:none;stroke-width:1.8;}
+.pk-actor .tag{font-family:var(--font-display);font-size:10.5px;font-weight:700;color:var(--blue-2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px;display:block;}
+.pk-actor h3{font-family:var(--font-display);font-size:16px;font-weight:600;color:#fff;margin-bottom:14px;line-height:1.3;}
+.pk-actor ul li{position:relative;padding:5px 0 5px 16px;font-size:13px;color:rgba(255,255,255,0.85);line-height:1.4;}
+.pk-actor ul li::before{content:'✓';position:absolute;left:0;top:5px;font-size:11px;color:var(--blue-2);font-weight:800;}
+@media (max-width:900px){ .pk-actors-grid{grid-template-columns:1fr 1fr;} }
+@media (max-width:600px){ .pk-actors-grid{grid-template-columns:1fr;} }
+
 /* ---------- VIDÉOS ---------- */
 .pk-videos{background:var(--paper);}
 .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;}
@@ -421,6 +444,60 @@ cdmp.sn
 </div>
 <div style="text-align:center;margin-top:36px;">
 <a href="#rejoindre" class="pk-btn pk-btn-primary" data-open-pk-form>Rejoindre l'écosystème PayKapital <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+</div>
+</section>
+
+<!-- ACTEURS -->
+<section class="pk-section pk-actors" id="pour-qui">
+<div class="wrap">
+<span class="pk-section-lbl">Pour qui</span>
+<h2>Un écosystème <em>gagnant-gagnant.</em></h2>
+<div class="pk-actors-grid">
+<div class="pk-actor">
+<div class="pk-actor-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1681225241052-ac67808b0c62?w=600&q=80&auto=format&fit=crop" alt="Monument de la Renaissance africaine, Dakar" onerror="this.src='https://images.unsplash.com/photo-1637166514815-8b923a08f8e8?w=600&q=80&auto=format&fit=crop';"/></div>
+<span class="tag">État & public</span>
+<h3>Fluidifier l'économie</h3>
+<ul>
+<li>Financement PME sans garantie</li>
+<li>Emplois pérennisés</li>
+<li>Inclusion financière</li>
+<li>Chaînes de valeur intégrées</li>
+</ul>
+</div>
+<div class="pk-actor">
+<div class="pk-actor-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1611258490565-4a06c019e631?w=600&q=80&auto=format&fit=crop" alt="Bâtiments corporate à Dakar" onerror="this.src='https://images.unsplash.com/photo-1690323223790-4df744a1a033?w=600&q=80&auto=format&fit=crop';"/></div>
+<span class="tag">Grandes entreprises</span>
+<h3>Optimiser son BFR</h3>
+<ul>
+<li>Fournisseurs sécurisés</li>
+<li>Moins de risque de rupture</li>
+<li>Meilleure liquidité</li>
+<li>Réconciliation automatisée</li>
+</ul>
+</div>
+<div class="pk-actor">
+<div class="pk-actor-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1664887248353-48fad226dbe6?w=600&q=80&auto=format&fit=crop" alt="Institution financière au Sénégal" onerror="this.src='https://images.unsplash.com/photo-1611258490565-4a06c019e631?w=600&q=80&auto=format&fit=crop';"/></div>
+<span class="tag">Banques & MFI</span>
+<h3>Pipeline qualifié</h3>
+<ul>
+<li>Parcours digitalisés</li>
+<li>Financements productifs</li>
+<li>Lignes de garantie</li>
+<li>Gestion du risque via data</li>
+</ul>
+</div>
+<div class="pk-actor">
+<div class="pk-actor-photo"><img loading="lazy" src="https://images.unsplash.com/photo-1528047705243-ebb19baf436f?w=600&q=80&auto=format&fit=crop" alt="Île de Gorée, patrimoine sénégalais" onerror="this.src='https://images.unsplash.com/photo-1637166514815-8b923a08f8e8?w=600&q=80&auto=format&fit=crop';"/></div>
+<span class="tag">Bailleurs & fonds</span>
+<h3>Impact mesurable</h3>
+<ul>
+<li>Inclusion productive</li>
+<li>Formalisation TPE/PME</li>
+<li>Croissance durable</li>
+<li>Traçabilité des flux</li>
+</ul>
+</div>
 </div>
 </div>
 </section>
